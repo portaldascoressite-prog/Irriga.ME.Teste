@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Irriga.ME Teste</title>
+
+    <!-- Firebase (pode manter ou remover depois) -->
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/11.4.0/firebase-database-compat.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>💧 IRRIGA.ME 💧</h1>
+</header>
+
+<main>
+
+    <!-- DADOS DO CLIMA -->
+    <section class="dados-clima">
+        <h2>🌡️ Condições Climáticas do Solo</h2>
+
+        <!-- INPUTS MANUAIS -->
+        <label>Temperatura (°C)</label>
+        <input type="number" id="temperatura" placeholder="Digite a temperatura">
+
+        <label>Umidade do Solo (%)</label>
+        <input type="number" id="umidade" placeholder="Digite a umidade">
+
+        <button onclick="verificarClima()">Atualizar</button>
+
+        <p id="melhorMomento"></p>
+    </section>
+
+    <!-- SWITCH -->
+    <div class="switch-container">
+        <label class="switch">
+            <input type="checkbox" id="toggleSwitch">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <!-- TIMER -->
+    <h3>Escolha o tempo</h3>
+
+    <label for="tempo">Tempo ligado (Minutos):</label>
+    <input type="number" id="tempo" min="1" max="60" value="1">
+
+    <p id="mensagem" style="display:none;"></p>
+
+    <!-- BOTÃO DO SISTEMA -->
+    <button id="botaoSistema">📊 Dados do Sistema</button>
+
+</main>
+
+<!-- MODAL -->
+<div id="modalSistema" class="modal">
+  <div class="modal-content">
+
+    <span class="fechar">&times;</span>
+
+    <h2>📡 Informações do Sistema</h2>
+
+    <div class="info-box">
+      <p><strong>Uso da CPU:</strong> <span id="cpuValor">--%</span></p>
+      <div class="barra">
+        <div class="preenchido" id="cpuBarra"></div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <p><strong>Uso da RAM:</strong> <span id="ramValor">--%</span></p>
+      <div class="barra">
+        <div class="preenchido" id="ramBarra"></div>
+      </div>
+    </div>
+
+    <div class="info-box">
+      <p><strong>Temperatura:</strong> <span id="tempValor">--°C</span></p>
+    </div>
+
+    <div class="info-box">
+      <p><strong>Latência:</strong> <span id="latenciaValor">--ms</span></p>
+    </div>
+
+  </div>
+</div>
+
+<script src="scripteste.js"></script>
+
+</body>
+</html>
